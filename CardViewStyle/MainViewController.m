@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "DYY_Datasource.h"
 #import "CradfirstViewController.h"
+#import "iCocosCardViewController.h"
 
 #define kNavBarHeight (([UIScreen mainScreen].bounds.size.height == 812.) ? 88. : 64.)//
 #define KKScreen_Width [UIScreen mainScreen].bounds.size.width
@@ -57,8 +58,22 @@
 - (void)cellSelectedWithObj:(NSIndexPath *)obj
 {
     NSLog(@"obj=%d",obj.row);
-    CradfirstViewController *card = [[CradfirstViewController alloc]init];
-    [self.navigationController pushViewController:card animated:YES];
+    switch (obj.row) {
+        case 0:
+        {
+            CradfirstViewController *card = [[CradfirstViewController alloc]init];
+            [self.navigationController pushViewController:card animated:YES];
+        }
+            break;
+        case 1:
+        {iCocosCardViewController *card = [[iCocosCardViewController alloc]init];
+            [self.navigationController pushViewController:card animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+   
     
 }
 - (void)didReceiveMemoryWarning {
